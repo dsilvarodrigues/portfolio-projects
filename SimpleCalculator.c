@@ -1,4 +1,5 @@
-
+/*Author[David Silva Rodrigues]
+Date[8/10/2025]*/
 #include <stdio.h>
 
 int main() {
@@ -59,4 +60,5 @@ printf("ERROR: Cannot divide by zero!\n");
        }
 
     return 0;
+
 }
