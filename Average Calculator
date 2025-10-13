@@ -1,0 +1,48 @@
+/*Average Calculator*/
+/*Author[David Silva Rodrigues]
+Date[13/10/2025]*/
+
+#include <stdio.h>
+
+int main() {
+
+double array[5]={10,20,30,40,50};
+double sum=0;
+int i;
+double average;
+puts("__________________________Average Calculator___________________");
+
+puts("");
+puts("");
+for(i=1;i <= 5; i++)
+
+{
+    printf("Insert the %dº number:",i);
+  
+    scanf("%lf", &array[i]);
+    if(array[i] < 0 || array[i] > 20)
+    {
+        
+        printf("ERROR!! Please insert a valid values");
+        return 0;
+    }
+    sum += array[i];
+}
+average=sum/5;
+if(average <=7.9)
+{
+    printf("Failed with average %.2lf",average);
+    
+}
+else
+{
+    if(average >=8)
+{
+    printf("Pass with average %.2lf",average);
+    
+}
+}
+
+
+    return 0;
+}
