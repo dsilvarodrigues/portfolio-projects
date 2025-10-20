@@ -1,0 +1,88 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+struct tagData {
+	int dia;	
+	int mes;
+	int ano;	
+};
+struct tagConfig {
+	int autonomia;
+	int camera;
+};
+
+void MenuDrones();
+
+int main ()
+{
+	char local[50];
+	struct tagData data;
+	int ops;
+	int qtd;
+	int idx = 0;
+
+	printf("Insire o local do evento:");
+	gets(local);
+
+	printf("Insire a data do evento(dd-mm-aaaa):");
+	scanf("%d-%d-%d",&data.dia,&data.mes,&data.ano);
+
+
+	printf("Indique a quantidade de drones:");
+	scanf("%d",&qtd);
+
+	if(qtd <=0 || qtd >=16)
+	{
+		puts("Por favor insire a quantidade permitida de drones do envento (1 a 15)");
+		return 0;
+	
+	};
+
+	MenuDrones();
+
+	printf("Selecione a tarefa que deseja executar: ");
+	scanf("%d",&ops);
+
+	struct tagConfig confi;
+
+	switch(ops){
+
+	case 1:
+
+		puts("");
+		printf("Insire a autonomia e o tipo de camera 1-(camera HD) / 0-(sem camera HD) ");
+		printf("Autonomia:");
+		scanf("%d",&confi.autonomia);
+
+		if(confi.autonomia <= 0 || confi.autonomia >= 1001)
+		{
+
+			printf("Por favor insira um valor entre 1 e 1000");
+
+		}
+
+		printf("camera");
+		scanf("%d",&confi.camera);
+		break;
+
+	
+
+
+
+	}
+
+
+	return 0;
+}
+void MenuDrones() {
+	puts("");
+	puts("____________________________|MENU|____________________________");
+	puts("");
+	puts("1-> Inserir autonomia e o tipo de camera");
+	puts("2-> Mostrar autonomia de drones com cameras HD");
+	puts("3-> Indicar");
+	puts("4-> Mostrar drone com maior autonimia sem camera HD");
+	puts("");
+}
+
+
