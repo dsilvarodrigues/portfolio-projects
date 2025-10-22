@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define _CRT_SECURE_NO_WARNINGS
 
 struct tagData {
@@ -20,20 +21,21 @@ int main ()
 	int ops;
 	int qtd;
 	int idx = 0;
+	char sair[[1];
 
-	printf("Insire o local do evento:");
+	printf("Insire o local do evento: ");
 	gets(local);
 
-	printf("Insire a data do evento(dd-mm-aaaa):");
+	printf("Insire a data do evento(dd-mm-aaaa): ");
 	scanf("%d-%d-%d",&data.dia,&data.mes,&data.ano);
 
 
-	printf("Indique a quantidade de drones:");
+	printf("Indique a quantidade de drones: ");
 	scanf("%d",&qtd);
 
 	if(qtd <=0 || qtd >=16)
 	{
-		puts("Por favor insire a quantidade permitida de drones do envento (1 a 15)");
+		puts("\nPor favor insire a quantidade permitida de drones do envento (1 a 15)\n");
 		return 0;
 	
 	};
@@ -44,45 +46,57 @@ int main ()
 	scanf("%d",&ops);
 
 	struct tagConfig confi;
+	 
+	system("cls");
 
 	switch(ops){
 
 	case 1:
 
-		puts("");
-		printf("Insire a autonomia e o tipo de camera 1-(camera HD) / 0-(sem camera HD) ");
-		printf("Autonomia:");
+		puts("Insire a autonomia e tipo de camera 1-(camera HD) / 0-(sem camera HD) ");
+		printf("Autonomia: ");
 		scanf("%d",&confi.autonomia);
 
-		if(confi.autonomia <= 0 || confi.autonomia >= 1001)
+			if(confi.autonomia < 1 || confi.autonomia > 1000)
 		{
-
-			printf("Por favor insira um valor entre 1 e 1000");
-
+		
+			printf("\nPor favor insira um valor entre 1 e 1000\n");
+			break;
 		}
 
-		printf("camera");
+		printf("Tipo de Camera: ");
 		scanf("%d",&confi.camera);
-		break;
 
+		if(confi.camera < 0 || confi.camera > 1)
+		{
 	
+		puts("\nPor favor insira um valor válido camera 1-(camera HD) / 0-(sem camera HD)\n ");
+		break;
+		}
+		printf("Deseja voltar ao Menu principal? (S/N)");
+		scanf("%c",&sair);
+		
+		switch(sair)
+		{
+		case 'S'
 
-
-
+			case 's';
+		
+		
+		}
 	}
 
 
 	return 0;
 }
 void MenuDrones() {
-	puts("");
-	puts("____________________________|MENU|____________________________");
+	
+	puts("\n____________________________|MENU|____________________________");
 	puts("");
 	puts("1-> Inserir autonomia e o tipo de camera");
 	puts("2-> Mostrar autonomia de drones com cameras HD");
 	puts("3-> Indicar");
-	puts("4-> Mostrar drone com maior autonimia sem camera HD");
-	puts("");
+	puts("4-> Mostrar drone com maior autonimia sem camera HD\n");
+	puts("5->Sair");
+
 }
-
-
